@@ -5,5 +5,7 @@ xcuserdata/
 *.xccheckout
 DerivedData/
 
+Models
+
 # Macos
 .DS_Store

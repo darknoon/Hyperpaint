@@ -1,15 +1,11 @@
-//
-//  ContentView.swift
-//  Hyperpaint
-//
-//  Created by Andrew Pouliot on 12/3/22.
-//
+// Hyperpaint
+// Created by Andrew Pouliot on 12/3/22.
 
 import SwiftUI
 
 enum Status {
   case idle
-  case compiling
+  case compiling(start: TimeInterval)
   case running
 }
 
@@ -31,8 +27,21 @@ struct ContentView: View {
   @State var guidanceScale: Float = 7
   @State var seed: Int = 42
 
+  func randomizeSeed() {
+    seed = Int.random(in: 0...100)
+  }
+
+  @State private var numberFormatter: NumberFormatter = {
+    var nf = NumberFormatter()
+    nf.numberStyle = .decimal
+    nf.minimumFractionDigits = 1
+    nf.maximumFractionDigits = 1
+    return nf
+  }()
+
   var body: some View {
-    VStack {
+
+    return VStack {
       HStack {
         TextField("Prompt", text: $text).onSubmit {
           runModel()
@@ -49,24 +58,56 @@ struct ContentView: View {
           }
           HStack {
             Text("Guidance Scale").frame(width: 100)
-            Slider(value: $guidanceScale, in: 1...10)
-            TextField("", value: $guidanceScale, formatter: NumberFormatter()).frame(width: 50)
+            Slider(value: $guidanceScale, in: 1.0...10.0)
+            TextField("", value: $guidanceScale, formatter: numberFormatter).frame(width: 50)
           }
           // Seed
           HStack {
             Text("Seed").frame(width: 100)
             TextField("Seed", value: $seed, formatter: NumberFormatter()).frame(width: 50)
+            Button("Randomize", action: randomizeSeed)
           }
         }
         .padding()
         .disabled(painting)
       }
-      if let progress = progress {
-        ProgressView(value: Float(progress.step), total: Float(progress.stepCount))
+      HStack {
+        // Show progress
+        if let progress = progress {
+          ProgressView(value: Float(progress.step), total: Float(progress.stepCount))
+        }
+        // Show error
+        if let error = error {
+          Text(error.localizedDescription)
+        }
+        // Show status
+        switch status {
+        case .idle:
+          Text("Idle")
+        case .compiling(let start):
+          // If it's been a long time
+          if CACurrentMediaTime() - start > 1.0 {
+            Text("Compiling. This may take a few minutes the first time...")
+          }
+          else {
+            // Make sure that we re-render periodically to make sure that we can show the "this may take a few minutes" message
+            Text("Compiling...")
+              .task {
+                // Wait 1.1 seconds
+                await Task.sleep(1_100_000_000)
+              }
+          }
+        case .running:
+          Text("Running")
+        }
       }
       if let image = image {
         Image(decorative: image, scale: 1)
       }
+      else {
+        Color.black.frame(width: 512, height: 512)
+      }
+
     }
     .padding()
   }
@@ -90,7 +131,7 @@ struct ContentView: View {
       }
       painting = true
       if painter == nil {
-        status = .compiling
+        status = .compiling(start: CACurrentMediaTime())
         painter = try? Paint(resourceURL: checkpoint)
       }
       status = .running
