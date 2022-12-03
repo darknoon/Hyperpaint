@@ -39,6 +39,7 @@ struct ContentView: View {
         // Run on main task
         DispatchQueue.main.async {
             progress = p
+            image = p.currentImages.first ?? nil
         }
     }
     
@@ -48,7 +49,7 @@ struct ContentView: View {
             if (painter == nil) {
                 painter = try? Paint()
             }
-            let images = try await painter?.generate(prompt: text, imageCount: 1, stepCount: 4, seed: 42, progressHandler: updateProgress)
+            let images = try await painter?.generate(prompt: text, imageCount: 1, stepCount: 30, seed: 42, progressHandler: updateProgress)
             image = images?.first ?? nil
             painting = false
         }
