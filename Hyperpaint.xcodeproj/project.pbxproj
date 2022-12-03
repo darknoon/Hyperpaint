@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49F6E3DA293BC05000A1D82C /* HyperpaintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3D9293BC05000A1D82C /* HyperpaintApp.swift */; };
+		49F6E3DC293BC05000A1D82C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3DB293BC05000A1D82C /* ContentView.swift */; };
+		49F6E3DE293BC05100A1D82C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F6E3DD293BC05100A1D82C /* Assets.xcassets */; };
+		49F6E3E2293BC05100A1D82C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F6E3E1293BC05100A1D82C /* Preview Assets.xcassets */; };
+		49F6E3EC293BC05200A1D82C /* HyperpaintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3EB293BC05200A1D82C /* HyperpaintTests.swift */; };
+		49F6E3F6293BC05200A1D82C /* HyperpaintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3F5293BC05200A1D82C /* HyperpaintUITests.swift */; };
+		49F6E3F8293BC05200A1D82C /* HyperpaintUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3F7293BC05200A1D82C /* HyperpaintUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49F6E3E8293BC05200A1D82C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F6E3CE293BC05000A1D82C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F6E3D5293BC05000A1D82C;
+			remoteInfo = Hyperpaint;
+		};
+		49F6E3F2293BC05200A1D82C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F6E3CE293BC05000A1D82C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49F6E3D5293BC05000A1D82C;
+			remoteInfo = Hyperpaint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49F6E3D6293BC05000A1D82C /* Hyperpaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyperpaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F6E3D9293BC05000A1D82C /* HyperpaintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperpaintApp.swift; sourceTree = "<group>"; };
+		49F6E3DB293BC05000A1D82C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49F6E3DD293BC05100A1D82C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49F6E3DF293BC05100A1D82C /* Hyperpaint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hyperpaint.entitlements; sourceTree = "<group>"; };
+		49F6E3E1293BC05100A1D82C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49F6E3E7293BC05200A1D82C /* HyperpaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperpaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F6E3EB293BC05200A1D82C /* HyperpaintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperpaintTests.swift; sourceTree = "<group>"; };
+		49F6E3F1293BC05200A1D82C /* HyperpaintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperpaintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F6E3F5293BC05200A1D82C /* HyperpaintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperpaintUITests.swift; sourceTree = "<group>"; };
+		49F6E3F7293BC05200A1D82C /* HyperpaintUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperpaintUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49F6E3D3293BC05000A1D82C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3E4293BC05200A1D82C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3EE293BC05200A1D82C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49F6E3CD293BC05000A1D82C = {
+			isa = PBXGroup;
+			children = (
+				49F6E3D8293BC05000A1D82C /* Hyperpaint */,
+				49F6E3EA293BC05200A1D82C /* HyperpaintTests */,
+				49F6E3F4293BC05200A1D82C /* HyperpaintUITests */,
+				49F6E3D7293BC05000A1D82C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49F6E3D7293BC05000A1D82C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49F6E3D6293BC05000A1D82C /* Hyperpaint.app */,
+				49F6E3E7293BC05200A1D82C /* HyperpaintTests.xctest */,
+				49F6E3F1293BC05200A1D82C /* HyperpaintUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49F6E3D8293BC05000A1D82C /* Hyperpaint */ = {
+			isa = PBXGroup;
+			children = (
+				49F6E3D9293BC05000A1D82C /* HyperpaintApp.swift */,
+				49F6E3DB293BC05000A1D82C /* ContentView.swift */,
+				49F6E3DD293BC05100A1D82C /* Assets.xcassets */,
+				49F6E3DF293BC05100A1D82C /* Hyperpaint.entitlements */,
+				49F6E3E0293BC05100A1D82C /* Preview Content */,
+			);
+			path = Hyperpaint;
+			sourceTree = "<group>";
+		};
+		49F6E3E0293BC05100A1D82C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				49F6E3E1293BC05100A1D82C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		49F6E3EA293BC05200A1D82C /* HyperpaintTests */ = {
+			isa = PBXGroup;
+			children = (
+				49F6E3EB293BC05200A1D82C /* HyperpaintTests.swift */,
+			);
+			path = HyperpaintTests;
+			sourceTree = "<group>";
+		};
+		49F6E3F4293BC05200A1D82C /* HyperpaintUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49F6E3F5293BC05200A1D82C /* HyperpaintUITests.swift */,
+				49F6E3F7293BC05200A1D82C /* HyperpaintUITestsLaunchTests.swift */,
+			);
+			path = HyperpaintUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49F6E3D5293BC05000A1D82C /* Hyperpaint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F6E3FB293BC05200A1D82C /* Build configuration list for PBXNativeTarget "Hyperpaint" */;
+			buildPhases = (
+				49F6E3D2293BC05000A1D82C /* Sources */,
+				49F6E3D3293BC05000A1D82C /* Frameworks */,
+				49F6E3D4293BC05000A1D82C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hyperpaint;
+			productName = Hyperpaint;
+			productReference = 49F6E3D6293BC05000A1D82C /* Hyperpaint.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49F6E3E6293BC05200A1D82C /* HyperpaintTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F6E3FE293BC05200A1D82C /* Build configuration list for PBXNativeTarget "HyperpaintTests" */;
+			buildPhases = (
+				49F6E3E3293BC05200A1D82C /* Sources */,
+				49F6E3E4293BC05200A1D82C /* Frameworks */,
+				49F6E3E5293BC05200A1D82C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F6E3E9293BC05200A1D82C /* PBXTargetDependency */,
+			);
+			name = HyperpaintTests;
+			productName = HyperpaintTests;
+			productReference = 49F6E3E7293BC05200A1D82C /* HyperpaintTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49F6E3F0293BC05200A1D82C /* HyperpaintUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49F6E401293BC05200A1D82C /* Build configuration list for PBXNativeTarget "HyperpaintUITests" */;
+			buildPhases = (
+				49F6E3ED293BC05200A1D82C /* Sources */,
+				49F6E3EE293BC05200A1D82C /* Frameworks */,
+				49F6E3EF293BC05200A1D82C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49F6E3F3293BC05200A1D82C /* PBXTargetDependency */,
+			);
+			name = HyperpaintUITests;
+			productName = HyperpaintUITests;
+			productReference = 49F6E3F1293BC05200A1D82C /* HyperpaintUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49F6E3CE293BC05000A1D82C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					49F6E3D5293BC05000A1D82C = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					49F6E3E6293BC05200A1D82C = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 49F6E3D5293BC05000A1D82C;
+					};
+					49F6E3F0293BC05200A1D82C = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 49F6E3D5293BC05000A1D82C;
+					};
+				};
+			};
+			buildConfigurationList = 49F6E3D1293BC05000A1D82C /* Build configuration list for PBXProject "Hyperpaint" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49F6E3CD293BC05000A1D82C;
+			productRefGroup = 49F6E3D7293BC05000A1D82C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49F6E3D5293BC05000A1D82C /* Hyperpaint */,
+				49F6E3E6293BC05200A1D82C /* HyperpaintTests */,
+				49F6E3F0293BC05200A1D82C /* HyperpaintUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49F6E3D4293BC05000A1D82C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F6E3E2293BC05100A1D82C /* Preview Assets.xcassets in Resources */,
+				49F6E3DE293BC05100A1D82C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3E5293BC05200A1D82C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3EF293BC05200A1D82C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49F6E3D2293BC05000A1D82C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F6E3DC293BC05000A1D82C /* ContentView.swift in Sources */,
+				49F6E3DA293BC05000A1D82C /* HyperpaintApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3E3293BC05200A1D82C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F6E3EC293BC05200A1D82C /* HyperpaintTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49F6E3ED293BC05200A1D82C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F6E3F8293BC05200A1D82C /* HyperpaintUITestsLaunchTests.swift in Sources */,
+				49F6E3F6293BC05200A1D82C /* HyperpaintUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49F6E3E9293BC05200A1D82C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F6E3D5293BC05000A1D82C /* Hyperpaint */;
+			targetProxy = 49F6E3E8293BC05200A1D82C /* PBXContainerItemProxy */;
+		};
+		49F6E3F3293BC05200A1D82C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49F6E3D5293BC05000A1D82C /* Hyperpaint */;
+			targetProxy = 49F6E3F2293BC05200A1D82C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49F6E3F9293BC05200A1D82C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49F6E3FA293BC05200A1D82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		49F6E3FC293BC05200A1D82C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hyperpaint/Hyperpaint.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hyperpaint/Preview Content\"";
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.Hyperpaint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49F6E3FD293BC05200A1D82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hyperpaint/Hyperpaint.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hyperpaint/Preview Content\"";
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.Hyperpaint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		49F6E3FF293BC05200A1D82C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.HyperpaintTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hyperpaint.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hyperpaint";
+			};
+			name = Debug;
+		};
+		49F6E400293BC05200A1D82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.HyperpaintTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hyperpaint.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hyperpaint";
+			};
+			name = Release;
+		};
+		49F6E402293BC05200A1D82C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.HyperpaintUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hyperpaint;
+			};
+			name = Debug;
+		};
+		49F6E403293BC05200A1D82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DDE4G723AJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darknoon.HyperpaintUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hyperpaint;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49F6E3D1293BC05000A1D82C /* Build configuration list for PBXProject "Hyperpaint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F6E3F9293BC05200A1D82C /* Debug */,
+				49F6E3FA293BC05200A1D82C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F6E3FB293BC05200A1D82C /* Build configuration list for PBXNativeTarget "Hyperpaint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F6E3FC293BC05200A1D82C /* Debug */,
+				49F6E3FD293BC05200A1D82C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F6E3FE293BC05200A1D82C /* Build configuration list for PBXNativeTarget "HyperpaintTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F6E3FF293BC05200A1D82C /* Debug */,
+				49F6E400293BC05200A1D82C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49F6E401293BC05200A1D82C /* Build configuration list for PBXNativeTarget "HyperpaintUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49F6E402293BC05200A1D82C /* Debug */,
+				49F6E403293BC05200A1D82C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49F6E3CE293BC05000A1D82C /* Project object */;
+}
