@@ -1,0 +1,33 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Xcode Build",
+      "type": "shell",
+      "command": "xcodebuild",
+      "args": [
+        "-project",
+        "${workspaceFolder}/Hyperpaint.xcodeproj",
+        "-scheme",
+        "Hyperpaint",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "macosx13.0",
+        "-destination",
+        "'platform=macOS'",
+        // output directory
+        "-derivedDataPath",
+        "./build",
+        "build"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

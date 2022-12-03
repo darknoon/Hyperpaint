@@ -116,7 +116,9 @@
 				49F6E3F4293BC05200A1D82C /* HyperpaintUITests */,
 				49F6E3D7293BC05000A1D82C /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		49F6E3D7293BC05000A1D82C /* Products */ = {
 			isa = PBXGroup;
