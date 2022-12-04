@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		49220AE4293BCF060065EFBF /* Paint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49220AE3293BCF060065EFBF /* Paint.swift */; };
-		49220AF4293BD1100065EFBF /* coreml-stable-diffusion-v1-4_original_compiled in Resources */ = {isa = PBXBuildFile; fileRef = 49220AF3293BD1100065EFBF /* coreml-stable-diffusion-v1-4_original_compiled */; };
+		4948DC76293CF6C700C89EB2 /* DiagonalGaussianDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4948DC75293CF6C700C89EB2 /* DiagonalGaussianDistribution.swift */; };
+		494BC0CA293C61C0001AE013 /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494BC0C9293C61C0001AE013 /* Encoder.swift */; };
+		497502AE293C239E0096EA08 /* coreml-stable-diffusion-v1-4_original_compiled in Resources */ = {isa = PBXBuildFile; fileRef = 497502AD293C239E0096EA08 /* coreml-stable-diffusion-v1-4_original_compiled */; };
 		49F6E3DA293BC05000A1D82C /* HyperpaintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3D9293BC05000A1D82C /* HyperpaintApp.swift */; };
 		49F6E3DC293BC05000A1D82C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6E3DB293BC05000A1D82C /* ContentView.swift */; };
 		49F6E3DE293BC05100A1D82C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F6E3DD293BC05100A1D82C /* Assets.xcassets */; };
@@ -48,7 +50,10 @@
 
 /* Begin PBXFileReference section */
 		49220AE3293BCF060065EFBF /* Paint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paint.swift; sourceTree = "<group>"; };
-		49220AF3293BD1100065EFBF /* coreml-stable-diffusion-v1-4_original_compiled */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "coreml-stable-diffusion-v1-4_original_compiled"; path = "../../models/coreml-stable-diffusion-v1-4_original_compiled"; sourceTree = "<group>"; };
+		4948DC75293CF6C700C89EB2 /* DiagonalGaussianDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagonalGaussianDistribution.swift; sourceTree = "<group>"; };
+		494BC0C9293C61C0001AE013 /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
+		497502AA293BFD050096EA08 /* coreml-stable-diffusion-2-base_original_compiled */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "coreml-stable-diffusion-2-base_original_compiled"; sourceTree = "<group>"; };
+		497502AD293C239E0096EA08 /* coreml-stable-diffusion-v1-4_original_compiled */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "coreml-stable-diffusion-v1-4_original_compiled"; sourceTree = "<group>"; };
 		49F6E3D6293BC05000A1D82C /* Hyperpaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hyperpaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F6E3D9293BC05000A1D82C /* HyperpaintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperpaintApp.swift; sourceTree = "<group>"; };
 		49F6E3DB293BC05000A1D82C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,7 +106,8 @@
 		49220AE5293BD0C50065EFBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				49220AF3293BD1100065EFBF /* coreml-stable-diffusion-v1-4_original_compiled */,
+				497502AD293C239E0096EA08 /* coreml-stable-diffusion-v1-4_original_compiled */,
+				497502AA293BFD050096EA08 /* coreml-stable-diffusion-2-base_original_compiled */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,12 +197,14 @@
 				49F6E407293BC50900A1D82C /* Random.swift */,
 				49F6E408293BC50900A1D82C /* TextEncoder.swift */,
 				49F6E409293BC50900A1D82C /* Decoder.swift */,
+				494BC0C9293C61C0001AE013 /* Encoder.swift */,
 				49F6E40A293BC50900A1D82C /* SafetyChecker.swift */,
 				49F6E40B293BC50900A1D82C /* Unet.swift */,
 				49F6E40C293BC50900A1D82C /* SampleTimer.swift */,
 				49F6E40D293BC50900A1D82C /* StableDiffusionPipeline+Resources.swift */,
 				49F6E40E293BC50900A1D82C /* Scheduler.swift */,
 				49F6E40F293BC50900A1D82C /* StableDiffusionPipeline.swift */,
+				4948DC75293CF6C700C89EB2 /* DiagonalGaussianDistribution.swift */,
 			);
 			path = pipeline;
 			sourceTree = "<group>";
@@ -316,7 +324,7 @@
 			files = (
 				49F6E3E2293BC05100A1D82C /* Preview Assets.xcassets in Resources */,
 				49F6E3DE293BC05100A1D82C /* Assets.xcassets in Resources */,
-				49220AF4293BD1100065EFBF /* coreml-stable-diffusion-v1-4_original_compiled in Resources */,
+				497502AE293C239E0096EA08 /* coreml-stable-diffusion-v1-4_original_compiled in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +351,8 @@
 			files = (
 				49F6E417293BC50900A1D82C /* Unet.swift in Sources */,
 				49F6E3DC293BC05000A1D82C /* ContentView.swift in Sources */,
+				494BC0CA293C61C0001AE013 /* Encoder.swift in Sources */,
+				4948DC76293CF6C700C89EB2 /* DiagonalGaussianDistribution.swift in Sources */,
 				49220AE4293BCF060065EFBF /* Paint.swift in Sources */,
 				49F6E414293BC50900A1D82C /* TextEncoder.swift in Sources */,
 				49F6E41A293BC50900A1D82C /* Scheduler.swift in Sources */,

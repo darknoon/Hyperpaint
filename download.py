@@ -4,6 +4,7 @@ from pathlib import Path
 import shutil
 
 repo_id = "apple/coreml-stable-diffusion-v1-4"
+# repo_id = "apple/coreml-stable-diffusion-2-base"
 variant = "original/compiled"
 
 def download_model(repo_id, variant, output_dir):

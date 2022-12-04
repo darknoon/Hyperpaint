@@ -2,6 +2,7 @@
 // Created by Andrew Pouliot on 12/3/22.
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 enum Status {
   case idle
@@ -14,7 +15,10 @@ let modelName = "coreml-stable-diffusion-v1-4_original_compiled"
 //let modelName = "coreml-stable-diffusion-2-base_original_compiled"
 
 struct ContentView: View {
-  @State var text: String = "an ios icon of a paintbrush"
+  // Inputs
+  @State var textInput: String = "an ios icon of a paintbrush"
+  @State var imageInput: CGImage? = nil
+
   @State var error: Error? = nil
   @State var painter: Paint? = nil
   @State var status: Status = .idle
@@ -30,7 +34,7 @@ struct ContentView: View {
   @State var steps: Float = 10
   @State var guidanceScale: Float = 7
   @State var seed: Int = 42
-  @State var displayEvery: Int = 1
+  @State var displayEvery: Int = 3
   @State var makeVariations: Bool = false
 
   func randomizeSeed() {
@@ -49,41 +53,71 @@ struct ContentView: View {
     Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Hyperpaint"
   }
 
+  var settings: some View {
+    VStack(alignment: .leading) {
+      // Labeled sliders
+      HStack {
+        Text("Steps")
+          .frame(width: 100, alignment: .trailing)
+        Slider(value: $steps, in: 1...100)
+        TextField("", value: $steps, formatter: NumberFormatter()).frame(width: 50)
+      }
+      HStack {
+        Text("Guidance Scale")
+          .frame(width: 100, alignment: .trailing)
+        Slider(value: $guidanceScale, in: 1.0...20.0)
+        TextField("", value: $guidanceScale, formatter: numberFormatter).frame(width: 50)
+      }
+      // Seed
+      HStack {
+        Text("Seed")
+          .frame(width: 100, alignment: .trailing)
+        TextField("Seed", value: $seed, formatter: NumberFormatter()).frame(width: 50)
+        Button(action: randomizeSeed) {
+          Label("Randomize", systemImage: "dice.fill")
+            .labelStyle(IconOnlyLabelStyle())
+        }
+      }
+      HStack {
+        Text("Variations")
+          .frame(width: 100, alignment: .trailing)
+        Toggle("Variations", isOn: $makeVariations)
+      }
+    }
+  }
+
   var body: some View {
 
     return VStack {
       HStack {
-        TextField("Prompt", text: $text).onSubmit {
+        TextField("Prompt", text: $textInput).onSubmit {
           runModel()
+        }
+        // Image input
+        Button(action: {
+          let picker = NSOpenPanel()
+          // 'allowedFileTypes' was deprecated in macOS 12.0
+          // picker.allowedFileTypes = ["png", "jpg", "jpeg"]
+          picker.allowedContentTypes = [UTType.png, UTType.jpeg]
+          picker.allowsMultipleSelection = false
+          picker.begin { result in
+            if result == .OK, let url = picker.url {
+              imageInput = NSImage(contentsOf: url)?.cgImage(
+                forProposedRect: nil,
+                context: nil,
+                hints: nil
+              )
+            }
+          }
+        }) {
+          Label("Image", systemImage: "photo")
         }
         Button("Sample", action: runModel).disabled(painting)
       }
       DisclosureGroup("Settings") {
-        VStack(alignment: .leading) {
-          // Labeled sliders
-          HStack {
-            Text("Steps").frame(width: 100)
-            Slider(value: $steps, in: 1...100)
-            TextField("", value: $steps, formatter: NumberFormatter()).frame(width: 50)
-          }
-          HStack {
-            Text("Guidance Scale").frame(width: 100)
-            Slider(value: $guidanceScale, in: 1.0...20.0)
-            TextField("", value: $guidanceScale, formatter: numberFormatter).frame(width: 50)
-          }
-          // Seed
-          HStack {
-            Text("Seed").frame(width: 100)
-            TextField("Seed", value: $seed, formatter: NumberFormatter()).frame(width: 50)
-            Button("Randomize", action: randomizeSeed)
-          }
-          HStack {
-            Text("Variations").frame(width: 100)
-            Toggle("Variations", isOn: $makeVariations)
-          }
-        }
-        .padding()
-        .disabled(painting)
+        settings
+          .padding()
+          .disabled(painting)
       }
       HStack {
         // Show progress
@@ -119,12 +153,13 @@ struct ContentView: View {
             Text("Displaying")
           }
         }
-        .frame(width: 200)
+        .frame(width: 90)
       }
       if let image = image {
         Image(decorative: image, scale: 1)
-      }
-      else {
+      } else if let image = imageInput {
+        Image(decorative: image, scale: 1)
+      } else {
         Color.black.frame(width: 512, height: 512)
       }
 
@@ -162,7 +197,8 @@ struct ContentView: View {
       }
       status = .running
       let images = try await painter?.generate(
-        prompt: text,
+        prompt: textInput,
+        image: imageInput,
         makeVariations: makeVariations,
         imageCount: 1,
         stepCount: Int(steps),

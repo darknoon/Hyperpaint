@@ -33,7 +33,7 @@ class Paint {
     }
 
     let config = MLModelConfiguration()
-    config.computeUnits = .cpuAndGPU
+    config.computeUnits = .all
 
     log("Creating pipeline...")
     pipeline = try StableDiffusionPipeline(
@@ -51,7 +51,7 @@ class Paint {
     _ progress: StableDiffusionPipeline.Progress,
     _ sampleTimer: SampleTimer
   ) {
-    log("\u{1B}[1A\u{1B}[K")
+    //log("\u{1B}[1A\u{1B}[K")
     log("Step \(progress.step) of \(progress.stepCount) ")
     log(" [")
     log(String(format: "mean: %.2f, ", 1.0 / sampleTimer.mean))
@@ -64,6 +64,7 @@ class Paint {
 
   func generate(
     prompt: String,
+    image: CGImage?,
     makeVariations: Bool,
     imageCount: Int,
     stepCount: Int,
@@ -82,7 +83,7 @@ class Paint {
       pipeline.guidanceScale = guidanceScale
       let images = try pipeline.generateImages(
         prompt: prompt,
-        inputLatent: makeVariations ? latestLatent : nil,
+        image: image,
         imageCount: imageCount,
         stepCount: stepCount,
         seed: seed
