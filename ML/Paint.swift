@@ -24,6 +24,8 @@ enum RunError: Error {
 class Paint {
 
   var pipeline: StableDiffusionPipeline
+  
+  var latestLatent: MLShapedArray<Float32>?
 
   init(resourceURL: URL) throws {
     guard FileManager.default.fileExists(atPath: resourceURL.path) else {
@@ -39,6 +41,7 @@ class Paint {
       configuration: config,
       disableSafety: disableSafety
     )
+    
     log("Created pipeline!")
   }
 
@@ -48,7 +51,7 @@ class Paint {
     _ progress: StableDiffusionPipeline.Progress,
     _ sampleTimer: SampleTimer
   ) {
-    log("\u{1B}[1A\u{1B}[K")
+    //log("\u{1B}[1A\u{1B}[K")
     log("Step \(progress.step) of \(progress.stepCount) ")
     log(" [")
     log(String(format: "mean: %.2f, ", 1.0 / sampleTimer.mean))
@@ -61,6 +64,8 @@ class Paint {
 
   func generate(
     prompt: String,
+    image: CGImage?,
+    makeVariations: Bool,
     imageCount: Int,
     stepCount: Int,
     guidanceScale: Float,
@@ -78,6 +83,7 @@ class Paint {
       pipeline.guidanceScale = guidanceScale
       let images = try pipeline.generateImages(
         prompt: prompt,
+        image: image,
         imageCount: imageCount,
         stepCount: stepCount,
         seed: seed
@@ -85,6 +91,7 @@ class Paint {
         sampleTimer.stop()
         handleProgress(progress, sampleTimer)
         progressHandler(progress)
+        latestLatent = progress.currentLatentSamples[0]
         if progress.stepCount != progress.step {
           sampleTimer.start()
         }
