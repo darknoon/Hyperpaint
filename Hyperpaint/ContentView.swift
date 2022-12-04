@@ -5,9 +5,13 @@ import SwiftUI
 
 enum Status {
   case idle
-  case compiling(start: TimeInterval)
+  case compiling(start: Date)
   case running
+  case displaying
 }
+
+let modelName = "coreml-stable-diffusion-v1-4_original_compiled"
+//let modelName = "coreml-stable-diffusion-2-base_original_compiled"
 
 struct ContentView: View {
   @State var text: String = "an ios icon of a paintbrush"
@@ -18,7 +22,7 @@ struct ContentView: View {
   @State var painting: Bool = false
   @State var progress: StableDiffusionPipeline.Progress? = nil
   @State var checkpoint: URL? = Bundle.main.url(
-    forResource: "coreml-stable-diffusion-v1-4_original_compiled",
+    forResource: modelName,
     withExtension: nil
   )
 
@@ -26,6 +30,8 @@ struct ContentView: View {
   @State var steps: Float = 10
   @State var guidanceScale: Float = 7
   @State var seed: Int = 42
+  @State var displayEvery: Int = 1
+  @State var makeVariations: Bool = false
 
   func randomizeSeed() {
     seed = Int.random(in: 0...100)
@@ -38,6 +44,10 @@ struct ContentView: View {
     nf.maximumFractionDigits = 1
     return nf
   }()
+
+  var appName: String {
+    Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Hyperpaint"
+  }
 
   var body: some View {
 
@@ -58,7 +68,7 @@ struct ContentView: View {
           }
           HStack {
             Text("Guidance Scale").frame(width: 100)
-            Slider(value: $guidanceScale, in: 1.0...10.0)
+            Slider(value: $guidanceScale, in: 1.0...20.0)
             TextField("", value: $guidanceScale, formatter: numberFormatter).frame(width: 50)
           }
           // Seed
@@ -66,6 +76,10 @@ struct ContentView: View {
             Text("Seed").frame(width: 100)
             TextField("Seed", value: $seed, formatter: NumberFormatter()).frame(width: 50)
             Button("Randomize", action: randomizeSeed)
+          }
+          HStack {
+            Text("Variations").frame(width: 100)
+            Toggle("Variations", isOn: $makeVariations)
           }
         }
         .padding()
@@ -81,25 +95,31 @@ struct ContentView: View {
           Text(error.localizedDescription)
         }
         // Show status
-        switch status {
-        case .idle:
-          Text("Idle")
-        case .compiling(let start):
-          // If it's been a long time
-          if CACurrentMediaTime() - start > 1.0 {
-            Text("Compiling. This may take a few minutes the first time...")
-          }
-          else {
-            // Make sure that we re-render periodically to make sure that we can show the "this may take a few minutes" message
-            Text("Compiling...")
-              .task {
-                // Wait 1.1 seconds
-                await Task.sleep(1_100_000_000)
+        Group {
+          switch status {
+          case .idle:
+            Text("Idle")
+          case .compiling(let start):
+            TimelineView(.periodic(from: .now, by: 1.0)) { timeline in
+              // If it's been a long time
+              let t = timeline.date.timeIntervalSince(start)
+              if t > 2.0 {
+                Text("Compiling…")
+                Text("This may take up to a few minutes the first time you run \(appName)")
+                Text("Waited \(t.formatted(.number.precision(.fractionLength(0))))s")
               }
+              else {
+                // Make sure that we re-render periodically to make sure that we can show the "this may take a few minutes" message
+                Text("Compiling…")
+              }
+            }
+          case .running:
+            Text("Running")
+          case .displaying:
+            Text("Displaying")
           }
-        case .running:
-          Text("Running")
         }
+        .frame(width: 200)
       }
       if let image = image {
         Image(decorative: image, scale: 1)
@@ -117,8 +137,14 @@ struct ContentView: View {
     DispatchQueue.main.async {
       progress = p
       // only every n for speed
-      if p.step % 3 == 0 {
-        image = p.currentImages.first ?? nil
+      if p.step % displayEvery == 0 {
+        status = .displaying
+        Task(priority: .medium) {
+          image = p.currentImages.first ?? nil
+          DispatchQueue.main.async {
+            status = .running
+          }
+        }
       }
     }
   }
@@ -137,6 +163,7 @@ struct ContentView: View {
       status = .running
       let images = try await painter?.generate(
         prompt: text,
+        makeVariations: makeVariations,
         imageCount: 1,
         stepCount: Int(steps),
         guidanceScale: guidanceScale,
