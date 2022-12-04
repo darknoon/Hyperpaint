@@ -131,7 +131,7 @@ struct ContentView: View {
       }
       painting = true
       if painter == nil {
-        status = .compiling(start: CACurrentMediaTime())
+        status = .compiling(start: Date.now)
         painter = try? Paint(resourceURL: checkpoint)
       }
       status = .running
