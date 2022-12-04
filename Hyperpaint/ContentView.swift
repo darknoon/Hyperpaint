@@ -86,6 +86,32 @@ struct ContentView: View {
     }
   }
 
+  var imageInputView: some View {
+    #if os(macOS)
+    // Image input
+    Button(action: {
+      let picker = NSOpenPanel()
+      // 'allowedFileTypes' was deprecated in macOS 12.0
+      // picker.allowedFileTypes = ["png", "jpg", "jpeg"]
+      picker.allowedContentTypes = [UTType.png, UTType.jpeg]
+      picker.allowsMultipleSelection = false
+      picker.begin { result in
+        if result == .OK, let url = picker.url {
+          imageInput = NSImage(contentsOf: url)?.cgImage(
+            forProposedRect: nil,
+            context: nil,
+            hints: nil
+          )
+        }
+      }
+    }) {
+      Label("Image", systemImage: "photo")
+    }
+#else
+    EmptyView()
+#endif
+  }
+  
   var body: some View {
 
     return VStack {
@@ -93,25 +119,7 @@ struct ContentView: View {
         TextField("Prompt", text: $textInput).onSubmit {
           runModel()
         }
-        // Image input
-        Button(action: {
-          let picker = NSOpenPanel()
-          // 'allowedFileTypes' was deprecated in macOS 12.0
-          // picker.allowedFileTypes = ["png", "jpg", "jpeg"]
-          picker.allowedContentTypes = [UTType.png, UTType.jpeg]
-          picker.allowsMultipleSelection = false
-          picker.begin { result in
-            if result == .OK, let url = picker.url {
-              imageInput = NSImage(contentsOf: url)?.cgImage(
-                forProposedRect: nil,
-                context: nil,
-                hints: nil
-              )
-            }
-          }
-        }) {
-          Label("Image", systemImage: "photo")
-        }
+        imageInputView
         Button("Sample", action: runModel).disabled(painting)
       }
       DisclosureGroup("Settings") {
